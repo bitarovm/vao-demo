@@ -7,12 +7,14 @@ import './styles.css';
 const App = () => {
   return (
     <Router>
-      <>
-        <Link to="/">Index</Link>
-        <Link to="/dog">Dog</Link>
-      </>
-      <Route path="/" exact component={DogsListContainer} />
-      <Route path="/dog/" component={DogsItemContainer} />
+      <div className='main-wrapper'>
+        <div className=''>
+          <Link to="/">Index</Link>
+          <Link to="/dog">Dog</Link>
+        </div>
+        <Route path="/" exact component={DogsListContainer} />
+        <Route path="/dog/:id" component={DogsItemContainer} />
+      </div>
     </Router>
   );
 }

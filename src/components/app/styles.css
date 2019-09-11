@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+#root {
+  min-height: 100%;
+}
+
+.main-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
