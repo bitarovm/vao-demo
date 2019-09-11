@@ -1,16 +1,19 @@
 import React from 'react';
-import Test from '../test';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import DogsListContainer from '../../containers/dogs/list';
 import DogsItemContainer from '../../containers/dogs/item';
 import './styles.css';
 
 const App = () => {
   return (
-    <>
-      <Test />
-      <DogsListContainer />
-      <DogsItemContainer />
-    </>
+    <Router>
+      <>
+        <Link to="/">Index</Link>
+        <Link to="/dog">Dog</Link>
+      </>
+      <Route path="/" exact component={DogsListContainer} />
+      <Route path="/dog/" component={DogsItemContainer} />
+    </Router>
   );
 }
 
