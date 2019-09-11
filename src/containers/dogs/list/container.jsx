@@ -47,7 +47,10 @@ class Container extends Component {
 
   handleRowClick = ({ id }) => {
     const { history } = this.props;
-    history.push('/dog/1');
+    
+    if (id) {
+      history.push(`/dog/${id}`);
+    }
   };
   
   render() {

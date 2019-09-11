@@ -1,12 +1,60 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import './styles.css';
+
+const Toolbar = ({ onToolbarItemClick }) => {
+  const onBackClick = () => onToolbarItemClick({ id: 'back' });
+  
+  return (
+    <div className="toolbar">
+      <button onClick={onBackClick}>Back</button>
+    </div>
+  )
+};
+
+const DogForm = ({ name, age }) => {
+  return (
+    <div className="dog-form">
+      <div className="dog-form__image"></div>
+      
+      <div className="dog-form__data">
+        <div className="dog-form__param">
+          <div className="dog-form__label">Имя</div>
+          <div className="dog-form__value">{name}</div>
+        </div>
+
+        <div className="dog-form__param">
+          <div className="dog-form__label">Возраст</div>
+          <div className="dog-form__value">{age}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 class Container extends Component {
   
   componentDidMount() {
     this.props.fetchDogData();
   };
-  
+
+  handleGoBack = () => {
+    const { history } = this.props;
+    history.push('/');
+  };
+
+  handleToolbarItemClick = ({ id }) => {
+    switch (id) {
+      case 'back':
+        this.handleGoBack();
+        break;
+
+      default:
+        break;
+    }
+  };
+
   render() {
     const { dogData, isLoading, error } = this.props;
 
@@ -19,21 +67,10 @@ class Container extends Component {
     }
 
     return (
-      <table>
-        <thead>
-          <tr>
-            <td>Имя</td>
-            <td>Возраст</td>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>{dogData.name}</td>
-            <td>{dogData.age}</td>
-          </tr>
-        </tbody>
-      </table>
+      <>
+        <Toolbar onToolbarItemClick={this.handleToolbarItemClick}/>
+        <DogForm {...dogData} />
+      </>
     );
   }
 };
