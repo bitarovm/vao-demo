@@ -2,10 +2,12 @@ import { ACTIONS } from './constants';
 
 const dogsList = [
   {
+    id: 1,
     name: 'Martin',
     age: 8,
   },
   {
+    id: 2,
     name: 'Mayram',
     age: 7,
   }

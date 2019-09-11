@@ -16,7 +16,7 @@ class Container extends Component {
     return (
       <div className="DogsListContainer">
         {dogsList.map(item => (
-          <div>{item.name} - {item.age}</div>
+          <div key={item.id}>{item.name} - {item.age}</div>
         ))}
       </div>
     );
