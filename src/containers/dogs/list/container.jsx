@@ -40,10 +40,33 @@ const DogsTable = ({ onRowClick, isLoading, dogsList, columns }) => {
       {
         isLoading 
           ? <div className='loading'>loading...</div>
-          : dogsList.map(renderRow) // внуть renderRow придут 3 аргумента из метода .map() - item, index, array
+          : dogsList.map(renderRow) // внутрь renderRow придут 3 аргумента из метода .map() - item, index, array
       }      
     </div>
   )
+};
+
+const DogsGroup = (props) => {
+  const {
+    title,
+    items,
+    isLoading,
+    columns,
+    onItemClick
+  } = props;
+  
+  return (
+    <div className="group">
+      {title && <div className="title">{title}</div>}
+
+      <DogsTable
+        dogsList={items}
+        isLoading={isLoading}
+        columns={columns}
+        onRowClick={onItemClick}
+      />
+    </div>
+  );
 };
 
 class Container extends Component {
@@ -51,7 +74,7 @@ class Container extends Component {
     this.props.fetchDogsListAction();
   };
 
-  handleRowClick = ({ id }) => {
+  handleItemClick = ({ id }) => {
     const { history } = this.props;
     
     if (id) {
@@ -60,24 +83,31 @@ class Container extends Component {
   };
   
   render() {
-    const { dogsList, isLoading, columns } = this.props;
+    const { dogsGroups, isLoading, columns } = this.props;
     
     return (
       <>
         <Toolbar />
-        <DogsTable
-          dogsList={dogsList}
-          isLoading={isLoading}
-          columns={columns}
-          onRowClick={this.handleRowClick}
-        />
+        {
+          dogsGroups.map(group => (
+            <DogsGroup
+              {...group}
+              isLoading={isLoading}
+              columns={columns}
+              onItemClick={this.handleItemClick}
+            />
+          ))
+        }
       </>
     );
   }
 };
 
 Container.propTypes = {
-  dogsList: PropTypes.array,
+  dogsGroups: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    items: PropTypes.array,
+  })),
   isLoading: PropTypes.bool,
   error: PropTypes.string,
   columns: PropTypes.array,

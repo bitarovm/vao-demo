@@ -1,5 +1,10 @@
-const dogsListSelector = (state) => {
-  return state.dogsListState.dogsList;
+const dogsGroupsSelector = (state) => {
+  return [
+    {
+      title: '',
+      items: state.dogsListState.dogsList,
+    }
+  ];
 };
 
 const isLoadingSelector = state => state.dogsListState.isLoading;
@@ -11,7 +16,7 @@ const columnsSelector = state => (
 );
 
 const mapStateToProps = (state) => ({
-  dogsList: dogsListSelector(state),
+  dogsGroups: dogsGroupsSelector(state),
   isLoading: isLoadingSelector(state),
   error: errorSelector(state),
   columns: columnsSelector(state),
