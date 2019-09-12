@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { DOGS_LIST_COLUMNS } from './constants';
 
 import './styles.css';
 
@@ -18,8 +19,11 @@ const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
 
     return (
       <div className='dogs-table__row' onClick={handleClick} key={item.id}>
-        <div className="dogs-table__cell">{item.name}</div>
-        <div className="dogs-table__cell">{item.age}</div>
+        {
+          DOGS_LIST_COLUMNS
+            .filter(field => field.visible)
+            .map(field => <div className="dogs-table__cell">{item[field.id]}</div>)
+        }
       </div>
     )
   }
@@ -27,8 +31,11 @@ const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
   return (
     <div className='dogs-table'>
       <div className='dogs-table__row _head'>
-        <div className="dogs-table__cell">Имя</div>
-        <div className="dogs-table__cell">Возраст</div>
+        {
+          DOGS_LIST_COLUMNS
+            .filter(field => field.visible)
+            .map(field => <div className="dogs-table__cell">{field.text}</div>)
+        }
       </div>
 
       {
@@ -42,7 +49,7 @@ const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
 
 class Container extends Component {
   componentDidMount() {
-    this.props.fetchDogsList();
+    this.props.fetchDogsListAction();
   };
 
   handleRowClick = ({ id }) => {
@@ -73,7 +80,7 @@ Container.propTypes = {
   dogsList: PropTypes.array,
   isLoading: PropTypes.bool,
   error: PropTypes.string,
-  fetchDogsList: PropTypes.func,
+  fetchDogsListAction: PropTypes.func,
 };
 
 export default Container;
