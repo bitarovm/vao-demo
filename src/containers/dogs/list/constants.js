@@ -6,7 +6,7 @@ export const ACTION_TYPES = {
 
 export const DOGS_LIST_COLUMNS = [
   {
-    id: 'id',
+    id: 'chipId',
     text: 'ИД',
     visible: true,
   },

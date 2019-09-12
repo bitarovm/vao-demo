@@ -18,11 +18,11 @@ const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
     const handleClick = () => onRowClick({ id: item.id });
 
     return (
-      <div className='dogs-table__row' onClick={handleClick} key={item.id}>
+      <div className='dogs-table__row' onClick={handleClick} key={item.chipId}>
         {
           DOGS_LIST_COLUMNS
             .filter(field => field.visible)
-            .map(field => <div className="dogs-table__cell">{item[field.id]}</div>)
+            .map((field, index) => <div className="dogs-table__cell" key={index}>{item[field.id]}</div>)
         }
       </div>
     )
@@ -34,7 +34,7 @@ const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
         {
           DOGS_LIST_COLUMNS
             .filter(field => field.visible)
-            .map(field => <div className="dogs-table__cell">{field.text}</div>)
+            .map((field, index) => <div className="dogs-table__cell" key={index}>{field.text}</div>)
         }
       </div>
 
