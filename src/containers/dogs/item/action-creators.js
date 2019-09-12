@@ -1,4 +1,4 @@
-import { ACTIONS } from './constants';
+import { ACTION_TYPES } from './constants';
 
 const dogData = {
   id: 1,
@@ -10,12 +10,12 @@ const dogData = {
 export const fetchDogData = () => {
   return (dispatch) => {
     dispatch({
-      type: ACTIONS.DOGS_ITEM_GET_DATA_REQUEST,
+      type: ACTION_TYPES.DOGS_ITEM_GET_DATA_REQUEST,
     });
 
     setTimeout(() => {
       dispatch({
-        type: ACTIONS.DOGS_ITEM_GET_DATA_SUCCESS,
+        type: ACTION_TYPES.DOGS_ITEM_GET_DATA_SUCCESS,
         payload: {
           dogData,
         },

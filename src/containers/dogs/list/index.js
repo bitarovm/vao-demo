@@ -5,9 +5,9 @@ import Container from './container';
 import * as actions from './action-creators';
 
 const mapStateToProps = (state) => ({
-  dogsList: state.dogsState.dogsList,
-  isLoading: state.dogsState.isLoading,
-  error: state.dogsState.error,
+  dogsList: state.dogsListState.dogsList,
+  isLoading: state.dogsListState.isLoading,
+  error: state.dogsListState.error,
 });
 
 const withConnect = connect(mapStateToProps, actions);

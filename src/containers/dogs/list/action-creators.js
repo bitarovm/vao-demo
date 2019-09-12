@@ -1,4 +1,4 @@
-import { ACTIONS } from './constants';
+import { ACTION_TYPES } from './constants';
 
 const dogsList = [
   {
@@ -16,12 +16,12 @@ const dogsList = [
 export const fetchDogsList = () => {
   return (dispatch) => {
     dispatch({
-      type: ACTIONS.DOGS_LIST_GET_DATA_REQUEST,
+      type: ACTION_TYPES.DOGS_LIST_GET_DATA_REQUEST,
     });
     
     setTimeout(() => {
       dispatch({
-        type: ACTIONS.DOGS_LIST_GET_DATA_SUCCESS,
+        type: ACTION_TYPES.DOGS_LIST_GET_DATA_SUCCESS,
         payload: {
           dogsList,
         }

@@ -1,4 +1,4 @@
-import { ACTIONS } from './constants';
+import { ACTION_TYPES } from './constants';
 
 const initialState = {
   dogData: {
@@ -13,20 +13,20 @@ const dogsItemReducer = (state = initialState, action) => {
   const { type, payload, error } = action;
 
   switch (type) {
-    case ACTIONS.DOGS_ITEM_GET_DATA_REQUEST:
+    case ACTION_TYPES.DOGS_ITEM_GET_DATA_REQUEST:
       return {
         ...state,
         isLoading: true,
       };
 
-    case ACTIONS.DOGS_ITEM_GET_DATA_SUCCESS:
+    case ACTION_TYPES.DOGS_ITEM_GET_DATA_SUCCESS:
       return {
         ...state,
         dogData: payload.dogData,
         isLoading: false,
       };
     
-    case ACTIONS.DOGS_ITEM_GET_DATA_FAIL:
+    case ACTION_TYPES.DOGS_ITEM_GET_DATA_FAIL:
       return {
         ...state,
         isLoading: false,
