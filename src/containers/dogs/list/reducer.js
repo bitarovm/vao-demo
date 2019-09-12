@@ -1,9 +1,10 @@
-import { ACTION_TYPES } from './constants';
+import { ACTION_TYPES, DOGS_LIST_COLUMNS } from './constants';
 
 const initialState = {
   dogsList: [],
   isLoading: false,
   error: null,
+  columns: DOGS_LIST_COLUMNS,
 };
 
 const dogsListReducer = (state = initialState, action) => {

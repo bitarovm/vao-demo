@@ -3,12 +3,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import Container from './container';
 import * as actions from './action-creators';
-
-const mapStateToProps = (state) => ({
-  dogsList: state.dogsListState.dogsList,
-  isLoading: state.dogsListState.isLoading,
-  error: state.dogsListState.error,
-});
+import mapStateToProps from './selectors';
 
 const withConnect = connect(mapStateToProps, actions);
 

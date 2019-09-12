@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DOGS_LIST_COLUMNS } from './constants';
 
 import './styles.css';
 
@@ -12,7 +11,7 @@ const Toolbar = () => (
   </div>
 );
 
-const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
+const DogsTable = ({ onRowClick, isLoading, dogsList, columns }) => {
 
   const renderRow = (item) => {
     const handleClick = () => onRowClick({ id: item.chipId });
@@ -20,9 +19,9 @@ const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
     return (
       <div className='dogs-table__row' onClick={handleClick} key={item.chipId}>
         {
-          DOGS_LIST_COLUMNS
-            .filter(field => field.visible)
-            .map((field, index) => <div className="dogs-table__cell" key={index}>{item[field.id]}</div>)
+          columns.map((field, index) => (
+            <div className="dogs-table__cell" key={index}>{item[field.id]}</div>
+          ))
         }
       </div>
     )
@@ -32,9 +31,9 @@ const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
     <div className='dogs-table'>
       <div className='dogs-table__row _head'>
         {
-          DOGS_LIST_COLUMNS
-            .filter(field => field.visible)
-            .map((field, index) => <div className="dogs-table__cell" key={index}>{field.text}</div>)
+          columns.map((field, index) => (
+            <div className="dogs-table__cell" key={index}>{field.text}</div>
+          ))
         }
       </div>
 
@@ -61,15 +60,16 @@ class Container extends Component {
   };
   
   render() {
-    const { dogsList, isLoading } = this.props;
+    const { dogsList, isLoading, columns } = this.props;
     
     return (
       <>
         <Toolbar />
         <DogsTable
-          onRowClick={this.handleRowClick}
-          isLoading={isLoading}
           dogsList={dogsList}
+          isLoading={isLoading}
+          columns={columns}
+          onRowClick={this.handleRowClick}
         />
       </>
     );
@@ -80,6 +80,7 @@ Container.propTypes = {
   dogsList: PropTypes.array,
   isLoading: PropTypes.bool,
   error: PropTypes.string,
+  columns: PropTypes.array,
   fetchDogsListAction: PropTypes.func,
 };
 
