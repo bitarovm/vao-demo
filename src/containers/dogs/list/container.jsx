@@ -15,7 +15,7 @@ const Toolbar = () => (
 const DogsTable = ({ onRowClick, isLoading, dogsList }) => {
 
   const renderRow = (item) => {
-    const handleClick = () => onRowClick({ id: item.id });
+    const handleClick = () => onRowClick({ id: item.chipId });
 
     return (
       <div className='dogs-table__row' onClick={handleClick} key={item.chipId}>
