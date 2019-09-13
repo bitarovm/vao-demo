@@ -1,8 +1,17 @@
+import { filterDogsList } from './utils';
+
 const dogsGroupsSelector = (state) => {
+  const { dogsList, searchString } = state;
+  let result = dogsList;
+
+  if (searchString) {
+    result = filterDogsList(result, searchString);
+  }
+
   return [
     {
       title: '',
-      items: state.dogsList,
+      items: result,
     }
   ];
 };
