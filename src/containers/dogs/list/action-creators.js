@@ -27,3 +27,9 @@ export const fetchDogsListAction = () => {
   };
 };
 
+export const dogsListChangeSort = (activeTypeId) => ({
+  type: ACTION_TYPES.DOGS_LIST_CHANGE_SORT,
+  payload: {
+    activeTypeId,
+  },
+});

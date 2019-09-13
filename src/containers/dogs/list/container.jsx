@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Toolbar from './toolbar';
 
 import './styles.css';
-
-const Toolbar = () => (
-  <div className='toolbar'>
-    <button>Sort by</button>
-    <button>Group by</button>
-    <button>Search</button>
-  </div>
-);
 
 const DogsTable = ({ onRowClick, isLoading, dogsList, columns }) => {
 
@@ -82,15 +75,32 @@ class Container extends Component {
     }
   };
   
+  handleChange = (param) => {
+    switch (param.fieldId) {
+      case 'sort':
+        this.props.dogsListChangeSort(param.fieldValue);
+        break;
+    
+      default:
+        break;
+    };
+  };
+
   render() {
-    const { dogsGroups, isLoading, columns } = this.props;
+    const {
+      dogsGroups,
+      isLoading,
+      columns,
+      sortParams,
+    } = this.props;
     
     return (
       <>
-        <Toolbar />
+        <Toolbar sortParams={sortParams} handleChange={this.handleChange} />
         {
-          dogsGroups.map(group => (
+          dogsGroups.map((group, index) => (
             <DogsGroup
+              key={index}
               {...group}
               isLoading={isLoading}
               columns={columns}
@@ -111,7 +121,10 @@ Container.propTypes = {
   isLoading: PropTypes.bool,
   error: PropTypes.string,
   columns: PropTypes.array,
+  sortParams: PropTypes.object,
+
   fetchDogsListAction: PropTypes.func,
+  dogsListChangeSort: PropTypes.func,
 };
 
 export default Container;

@@ -15,11 +15,14 @@ const columnsSelector = state => (
   state.dogsListState.columns.filter(column => column.visible)
 );
 
+const sortParamsSelector = (state) => state.dogsListState.sortParams;
+
 const mapStateToProps = (state) => ({
   dogsGroups: dogsGroupsSelector(state),
   isLoading: isLoadingSelector(state),
   error: errorSelector(state),
   columns: columnsSelector(state),
+  sortParams: sortParamsSelector(state),
 });
 
 export default mapStateToProps;
