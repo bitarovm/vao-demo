@@ -2,26 +2,26 @@ const dogsGroupsSelector = (state) => {
   return [
     {
       title: '',
-      items: state.dogsListState.dogsList,
+      items: state.dogsList,
     }
   ];
 };
 
-const isLoadingSelector = state => state.dogsListState.isLoading;
+const isLoadingSelector = state => state.isLoading;
 
-const errorSelector = state => state.dogsListState.error;
+const errorSelector = state => state.error;
 
 const columnsSelector = state => (
-  state.dogsListState.columns.filter(column => column.visible)
+  state.columns.filter(column => column.visible)
 );
 
-const sortParamsSelector = (state) => state.dogsListState.sortParams;
+const sortParamsSelector = (state) => state.sortParams;
 
-const groupParamsSelector = (state) => state.dogsListState.groupParams;
+const groupParamsSelector = (state) => state.groupParams;
 
-const searchSelector = (state) => state.dogsListState.searchString;
+const searchSelector = (state) => state.searchString;
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = ({ dogsListState: state }) => ({
   dogsGroups: dogsGroupsSelector(state),
   isLoading: isLoadingSelector(state),
   error: errorSelector(state),
