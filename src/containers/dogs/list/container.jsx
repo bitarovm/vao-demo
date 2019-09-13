@@ -75,12 +75,16 @@ class Container extends Component {
     }
   };
   
-  handleChange = (param) => {
+  handleToolbarParamsChange = (param) => {
     switch (param.fieldId) {
       case 'sort':
         this.props.dogsListChangeSort(param.fieldValue);
         break;
-    
+
+      case 'group':
+        this.props.dogsListChangeGroup(param.fieldValue);
+        break;
+
       default:
         break;
     };
@@ -92,11 +96,16 @@ class Container extends Component {
       isLoading,
       columns,
       sortParams,
+      groupParams,
     } = this.props;
     
     return (
       <>
-        <Toolbar sortParams={sortParams} handleChange={this.handleChange} />
+        <Toolbar
+          sortParams={sortParams}
+          groupParams={groupParams}
+          onParamsChange={this.handleToolbarParamsChange}
+        />
         {
           dogsGroups.map((group, index) => (
             <DogsGroup
@@ -122,9 +131,11 @@ Container.propTypes = {
   error: PropTypes.string,
   columns: PropTypes.array,
   sortParams: PropTypes.object,
+  groupParams: PropTypes.object,
 
   fetchDogsListAction: PropTypes.func,
   dogsListChangeSort: PropTypes.func,
+  dogsListChangeGroup: PropTypes.func,
 };
 
 export default Container;

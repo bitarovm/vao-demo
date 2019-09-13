@@ -2,6 +2,7 @@ import {
   ACTION_TYPES,
   DOGS_LIST_COLUMNS,
   SORT_TYPES,
+  GROUP_TYPES,
 } from './constants';
 
 const initialState = {
@@ -9,10 +10,13 @@ const initialState = {
   isLoading: false,
   error: null,
   columns: DOGS_LIST_COLUMNS,
-  toolbarParams: {}, //delete
   sortParams: {
     typesList: SORT_TYPES,
     activeTypeId: 'ageAsc',
+  },
+  groupParams: {
+    typesList: GROUP_TYPES,
+    activeTypeId: 'avairy',
   },
 };
 
@@ -45,6 +49,15 @@ const dogsListReducer = (state = initialState, action) => {
         ...state,
         sortParams: {
           ...state.sortParams,
+          activeTypeId: payload.activeTypeId,
+        },
+      };
+
+    case ACTION_TYPES.DOGS_LIST_CHANGE_GROUP:
+      return {
+        ...state,
+        groupParams: {
+          ...state.groupParams,
           activeTypeId: payload.activeTypeId,
         },
       };

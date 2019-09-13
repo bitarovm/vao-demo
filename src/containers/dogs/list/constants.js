@@ -4,6 +4,7 @@ export const ACTION_TYPES = {
   DOGS_LIST_GET_DATA_FAIL: 'DOGS_LIST_GET_DATA_FAIL',
   
   DOGS_LIST_CHANGE_SORT: 'DOGS_LIST_CHANGE_SORT',
+  DOGS_LIST_CHANGE_GROUP: 'DOGS_LIST_CHANGE_GROUP',
 };
 
 export const DOGS_LIST_COLUMNS = [
@@ -58,5 +59,16 @@ export const SORT_TYPES = [
     label: 'Год рождения (desc)',
     fieldId: 'age',
     direction: 'desc',
+  },
+];
+
+export const GROUP_TYPES = [
+  {
+    id: 'avairy',
+    label: 'Вольер',
+  },
+  {
+    id: 'walkingGroup',
+    label: 'Выгул',
   },
 ];

@@ -2,11 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Toolbar = (props) => {
-  const { sortParams, handleChange } = props;
+  const {
+    sortParams,
+    groupParams,
+    onParamsChange
+  } = props;
 
   const handleSortChange = (event) => {
-    handleChange({
+    onParamsChange({
       fieldId: 'sort',
+      fieldValue: event.target.value,
+    });
+  };
+
+  const handleGroupChange = (event) => {
+    onParamsChange({
+      fieldId: 'group',
       fieldValue: event.target.value,
     });
   };
@@ -26,9 +37,12 @@ const Toolbar = (props) => {
 
       <div className='toolbar__item'>
         <label className='toolbar__item-label'>Группировка:</label>
-        <select>
-          <option value='avairy'>Вольер</option>
-          <option value='walkingGroup'>Выгул</option>
+        <select defaultValue={groupParams.activeTypeId} onChange={handleGroupChange}>
+          {
+            groupParams.typesList.map(item => 
+              <option key={item.id} value={item.id}>{item.label}</option>
+            )
+          }
         </select>
       </div>
 
@@ -45,7 +59,10 @@ Toolbar.propTypes = {
     typesList: PropTypes.array,
     activeTypeId: PropTypes.string,
   }),
-
+  groupParams: PropTypes.shape({
+    typesList: PropTypes.array,
+    activeTypeId: PropTypes.string,
+  }),
 };
 
 export default Toolbar;

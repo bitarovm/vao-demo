@@ -33,3 +33,10 @@ export const dogsListChangeSort = (activeTypeId) => ({
     activeTypeId,
   },
 });
+
+export const dogsListChangeGroup = (activeTypeId) => ({
+  type: ACTION_TYPES.DOGS_LIST_CHANGE_GROUP,
+  payload: {
+    activeTypeId,
+  },
+});
