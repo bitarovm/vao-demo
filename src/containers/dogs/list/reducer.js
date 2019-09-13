@@ -12,11 +12,11 @@ const initialState = {
   columns: DOGS_LIST_COLUMNS,
   sortParams: {
     items: SORT_TYPES,
-    activeItemId: 'ageAsc',
+    fieldId: 'ageAsc',
   },
   groupParams: {
     items: GROUP_TYPES,
-    activeItemId: 'avairy',
+    fieldId: 'avairy',
   },
   searchString: '',
 };
@@ -50,7 +50,7 @@ const dogsListReducer = (state = initialState, action) => {
         ...state,
         sortParams: {
           ...state.sortParams,
-          activeItemId: payload.activeItemId,
+          fieldId: payload.fieldId,
         },
       };
 
@@ -59,7 +59,7 @@ const dogsListReducer = (state = initialState, action) => {
         ...state,
         groupParams: {
           ...state.groupParams,
-          activeItemId: payload.activeItemId,
+          fieldId: payload.fieldId,
         },
       };
 
