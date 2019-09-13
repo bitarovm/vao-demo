@@ -27,17 +27,17 @@ export const fetchDogsListAction = () => {
   };
 };
 
-export const dogsListChangeSort = (activeTypeId) => ({
+export const dogsListChangeSort = (activeItemId) => ({
   type: ACTION_TYPES.DOGS_LIST_CHANGE_SORT,
   payload: {
-    activeTypeId,
+    activeItemId,
   },
 });
 
-export const dogsListChangeGroup = (activeTypeId) => ({
+export const dogsListChangeGroup = (activeItemId) => ({
   type: ACTION_TYPES.DOGS_LIST_CHANGE_GROUP,
   payload: {
-    activeTypeId,
+    activeItemId,
   },
 });
 

@@ -34,9 +34,9 @@ const Toolbar = (props) => {
     <div className='toolbar'>
       <div className='toolbar__item'>
         <label className='toolbar__item-label'>Сортировка:</label>
-        <select defaultValue={sortParams.activeTypeId} onChange={handleSortChange}>
+        <select defaultValue={sortParams.activeItemId} onChange={handleSortChange}>
           {
-            sortParams.typesList.map(item => 
+            sortParams.items.map(item => 
               <option key={item.id} value={item.id}>{item.label}</option>
             )
           }
@@ -45,9 +45,9 @@ const Toolbar = (props) => {
 
       <div className='toolbar__item'>
         <label className='toolbar__item-label'>Группировка:</label>
-        <select defaultValue={groupParams.activeTypeId} onChange={handleGroupChange}>
+        <select defaultValue={groupParams.activeItemId} onChange={handleGroupChange}>
           {
-            groupParams.typesList.map(item => 
+            groupParams.items.map(item => 
               <option key={item.id} value={item.id}>{item.label}</option>
             )
           }
@@ -64,12 +64,12 @@ const Toolbar = (props) => {
 
 Toolbar.propTypes = {
   sortParams: PropTypes.shape({
-    typesList: PropTypes.array,
-    activeTypeId: PropTypes.string,
+    items: PropTypes.array,
+    activeItemId: PropTypes.string,
   }),
   groupParams: PropTypes.shape({
-    typesList: PropTypes.array,
-    activeTypeId: PropTypes.string,
+    items: PropTypes.array,
+    activeItemId: PropTypes.string,
   }),
   searchString: PropTypes.string,
 };

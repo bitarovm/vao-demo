@@ -11,12 +11,12 @@ const initialState = {
   error: null,
   columns: DOGS_LIST_COLUMNS,
   sortParams: {
-    typesList: SORT_TYPES,
-    activeTypeId: 'ageAsc',
+    items: SORT_TYPES,
+    activeItemId: 'ageAsc',
   },
   groupParams: {
-    typesList: GROUP_TYPES,
-    activeTypeId: 'avairy',
+    items: GROUP_TYPES,
+    activeItemId: 'avairy',
   },
   searchString: '',
 };
@@ -50,7 +50,7 @@ const dogsListReducer = (state = initialState, action) => {
         ...state,
         sortParams: {
           ...state.sortParams,
-          activeTypeId: payload.activeTypeId,
+          activeItemId: payload.activeItemId,
         },
       };
 
@@ -59,7 +59,7 @@ const dogsListReducer = (state = initialState, action) => {
         ...state,
         groupParams: {
           ...state.groupParams,
-          activeTypeId: payload.activeTypeId,
+          activeItemId: payload.activeItemId,
         },
       };
 
