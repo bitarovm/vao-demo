@@ -50,15 +50,15 @@ export const SORT_TYPES = [
     direction: 'desc',
   },
   {
-    id: 'ageAsc',
+    id: 'birthdayAsc',
     label: 'Год рождения (asc)',
-    fieldId: 'age',
+    fieldId: 'birthday',
     direction: 'asc',
   },
   {
-    id: 'ageDesc',
+    id: 'birthdayDesc',
     label: 'Год рождения (desc)',
-    fieldId: 'age',
+    fieldId: 'birthday',
     direction: 'desc',
   },
 ];

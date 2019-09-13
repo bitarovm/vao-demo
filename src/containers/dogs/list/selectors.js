@@ -1,12 +1,19 @@
-import { filterDogsList } from './utils';
+import { filterDogsList, sortDogsList } from './utils';
 
 const dogsGroupsSelector = (state) => {
-  const { dogsList, searchString } = state;
+  const {
+    dogsList,
+    searchString,
+    sortParams,
+  } = state;
+
   let result = dogsList;
 
   if (searchString) {
     result = filterDogsList(result, searchString);
-  }
+  };
+
+  result = sortDogsList(result, sortParams);
 
   return [
     {

@@ -12,7 +12,7 @@ const initialState = {
   columns: DOGS_LIST_COLUMNS,
   sortParams: {
     items: SORT_TYPES,
-    fieldId: 'ageAsc',
+    fieldId: 'birthdayAsc',
   },
   groupParams: {
     items: GROUP_TYPES,
