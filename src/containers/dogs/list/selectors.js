@@ -19,6 +19,8 @@ const sortParamsSelector = (state) => state.dogsListState.sortParams;
 
 const groupParamsSelector = (state) => state.dogsListState.groupParams;
 
+const searchSelector = (state) => state.dogsListState.searchString;
+
 const mapStateToProps = (state) => ({
   dogsGroups: dogsGroupsSelector(state),
   isLoading: isLoadingSelector(state),
@@ -26,6 +28,7 @@ const mapStateToProps = (state) => ({
   columns: columnsSelector(state),
   sortParams: sortParamsSelector(state),
   groupParams: groupParamsSelector(state),
+  searchString: searchSelector(state),
 });
 
 export default mapStateToProps;

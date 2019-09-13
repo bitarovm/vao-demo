@@ -85,6 +85,10 @@ class Container extends Component {
         this.props.dogsListChangeGroup(param.fieldValue);
         break;
 
+      case 'search':
+        this.props.dogsListChangeSearch(param.fieldValue);
+        break;
+
       default:
         break;
     };
@@ -97,6 +101,7 @@ class Container extends Component {
       columns,
       sortParams,
       groupParams,
+      searchString,
     } = this.props;
     
     return (
@@ -104,6 +109,7 @@ class Container extends Component {
         <Toolbar
           sortParams={sortParams}
           groupParams={groupParams}
+          searchString={searchString}
           onParamsChange={this.handleToolbarParamsChange}
         />
         {
@@ -132,10 +138,12 @@ Container.propTypes = {
   columns: PropTypes.array,
   sortParams: PropTypes.object,
   groupParams: PropTypes.object,
+  searchString: PropTypes.string,
 
   fetchDogsListAction: PropTypes.func,
   dogsListChangeSort: PropTypes.func,
   dogsListChangeGroup: PropTypes.func,
+  dogsListChangeSearch: PropTypes.func,
 };
 
 export default Container;

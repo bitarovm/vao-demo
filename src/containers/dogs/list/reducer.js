@@ -18,6 +18,7 @@ const initialState = {
     typesList: GROUP_TYPES,
     activeTypeId: 'avairy',
   },
+  searchString: '',
 };
 
 const dogsListReducer = (state = initialState, action) => {
@@ -60,6 +61,12 @@ const dogsListReducer = (state = initialState, action) => {
           ...state.groupParams,
           activeTypeId: payload.activeTypeId,
         },
+      };
+
+    case ACTION_TYPES.DOGS_LIST_CHANGE_SEARCH:
+      return {
+        ...state,
+        searchString: payload.searchString,
       };
 
     default:

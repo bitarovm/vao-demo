@@ -5,6 +5,7 @@ const Toolbar = (props) => {
   const {
     sortParams,
     groupParams,
+    searchString,
     onParamsChange
   } = props;
 
@@ -18,6 +19,13 @@ const Toolbar = (props) => {
   const handleGroupChange = (event) => {
     onParamsChange({
       fieldId: 'group',
+      fieldValue: event.target.value,
+    });
+  };
+
+  const handleSearchChange = (event) => {
+    onParamsChange({
+      fieldId: 'search',
       fieldValue: event.target.value,
     });
   };
@@ -48,7 +56,7 @@ const Toolbar = (props) => {
 
       <div className='toolbar__item'>
         <label className='toolbar__item-label'>Поиск:</label>
-        <input type='text' />
+        <input type='text' valeu={searchString} onChange={handleSearchChange} />
       </div>
     </div>
   );
@@ -63,6 +71,7 @@ Toolbar.propTypes = {
     typesList: PropTypes.array,
     activeTypeId: PropTypes.string,
   }),
+  searchString: PropTypes.string,
 };
 
 export default Toolbar;

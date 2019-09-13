@@ -40,3 +40,10 @@ export const dogsListChangeGroup = (activeTypeId) => ({
     activeTypeId,
   },
 });
+
+export const dogsListChangeSearch = (searchString) => ({
+  type: ACTION_TYPES.DOGS_LIST_CHANGE_SEARCH,
+  payload: {
+    searchString,
+  },
+});
