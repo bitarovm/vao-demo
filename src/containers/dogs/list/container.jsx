@@ -21,15 +21,15 @@ class Container extends Component {
   handleToolbarParamsChange = (param) => {
     switch (param.fieldId) {
       case 'sort':
-        this.props.dogsListChangeSort(param.fieldValue);
+        this.props.dogsListChangeSortAction(param.fieldValue);
         break;
 
       case 'group':
-        this.props.dogsListChangeGroup(param.fieldValue);
+        this.props.dogsListChangeGroupAction(param.fieldValue);
         break;
 
       case 'search':
-        this.props.dogsListChangeSearch(param.fieldValue);
+        this.props.dogsListChangeSearchAction(param.fieldValue);
         break;
 
       default:
@@ -86,9 +86,9 @@ Container.propTypes = {
   searchString: PropTypes.string,
 
   fetchDogsListAction: PropTypes.func,
-  dogsListChangeSort: PropTypes.func,
-  dogsListChangeGroup: PropTypes.func,
-  dogsListChangeSearch: PropTypes.func,
+  dogsListChangeSortAction: PropTypes.func,
+  dogsListChangeGroupAction: PropTypes.func,
+  dogsListChangeSearchAction: PropTypes.func,
 };
 
 export default Container;

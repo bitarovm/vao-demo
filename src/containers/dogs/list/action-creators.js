@@ -27,21 +27,21 @@ export const fetchDogsListAction = () => {
   };
 };
 
-export const dogsListChangeSort = (fieldId) => ({
+export const dogsListChangeSortAction = (fieldId) => ({
   type: ACTION_TYPES.DOGS_LIST_CHANGE_SORT,
   payload: {
     fieldId,
   },
 });
 
-export const dogsListChangeGroup = (fieldId) => ({
+export const dogsListChangeGroupAction = (fieldId) => ({
   type: ACTION_TYPES.DOGS_LIST_CHANGE_GROUP,
   payload: {
     fieldId,
   },
 });
 
-export const dogsListChangeSearch = (searchString) => ({
+export const dogsListChangeSearchAction = (searchString) => ({
   type: ACTION_TYPES.DOGS_LIST_CHANGE_SEARCH,
   payload: {
     searchString,
