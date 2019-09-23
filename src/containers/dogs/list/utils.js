@@ -17,3 +17,25 @@ export const sortDogsList = (dogsList, sortParams) => {
 
   return dogsList.sort((a, b) => b[fieldId].localeCompare(a[fieldId]));
 };
+
+export const groupDogsList = (dogsList, groupParams) => {
+  const { items, fieldId } = groupParams;
+  const groupType = items.find(item => item.id === fieldId);
+  const { id, label } = groupType || {};
+
+  let result = [];
+
+  dogsList.forEach(item => {
+    const title = `${label}: ${item[id]}`;
+    const group = result.find(resultItem => resultItem.title === title);
+
+    group
+      ? group.items.push(item)
+      : result.push({
+          title: title,
+          items: [item],
+        });
+  });
+
+  return result.sort((a, b) => a.title.localeCompare(b.title));
+};

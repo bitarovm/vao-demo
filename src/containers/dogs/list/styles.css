@@ -13,6 +13,17 @@
   margin-right: 10px;
 }
 
+.group {
+  margin-bottom: 50px;
+}
+
+.title {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  background-color: #ccc;
+}
+
 .dogs-table {
   width: 100%;
 }
