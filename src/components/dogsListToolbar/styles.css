@@ -1,0 +1,14 @@
+.toolbar {
+  display: flex;
+  border-bottom: 1px solid #666;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.toolbar__item {
+  margin-right: 50px;
+}
+
+.toolbar__item-label {
+  margin-right: 10px;
+}
