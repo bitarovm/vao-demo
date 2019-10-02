@@ -1,25 +1,32 @@
 import { ACTION_TYPES } from './constants';
+import { fetchDogsList } from '../../../backend/dogsList';
 
-const dogData = {
-  id: 1,
-  name: 'Martin',
-  age: 8,
-  yearTrapping: 2015,
-};
+const dogsItemGetDataRequest = () => ({
+  type: ACTION_TYPES.DOGS_ITEM_GET_DATA_REQUEST,
+});
 
-export const fetchDogData = () => {
+const dogsItemGetDataSuccess = (dogData) => ({
+  type: ACTION_TYPES.DOGS_ITEM_GET_DATA_SUCCESS,
+  payload: {
+    dogData,
+  },
+});
+
+const dogsItemGetDataFail = (error) => ({
+  type: ACTION_TYPES.DOGS_ITEM_GET_DATA_FAIL,
+  error,
+});
+
+export const fetchDogData = (dogChipId) => {
   return (dispatch) => {
-    dispatch({
-      type: ACTION_TYPES.DOGS_ITEM_GET_DATA_REQUEST,
-    });
+    dispatch(dogsItemGetDataRequest());
 
-    setTimeout(() => {
-      dispatch({
-        type: ACTION_TYPES.DOGS_ITEM_GET_DATA_SUCCESS,
-        payload: {
-          dogData,
-        },
+    fetchDogsList()
+      .then(dogs => {
+        const dogData = dogs.find(dog => dog.chipId === dogChipId);
+        // console.log('dogData:', dogData);
+        return dispatch(dogsItemGetDataSuccess(dogData));
       })
-    }, 3000);
+      .catch(error => dispatch(dogsItemGetDataFail(error)));
   };
 };

@@ -13,21 +13,25 @@ const Toolbar = ({ onToolbarItemClick }) => {
   )
 };
 
-const DogForm = ({ name, age }) => {
+const DogForm = (props) => {
+  const {
+    dogData,
+    fields,
+  } = props;
+
   return (
     <div className="dog-form">
       <div className="dog-form__image"></div>
       
       <div className="dog-form__data">
-        <div className="dog-form__param">
-          <div className="dog-form__label">Имя</div>
-          <div className="dog-form__value">{name}</div>
-        </div>
-
-        <div className="dog-form__param">
-          <div className="dog-form__label">Возраст</div>
-          <div className="dog-form__value">{age}</div>
-        </div>
+        {
+          fields.map((field, index) => (
+            <div className="dog-form__param" key={index}>
+              <div className="dog-form__label">{field.text}</div>
+              <div className="dog-form__value">{dogData[field.id]}</div>
+            </div>
+          ))
+        }
       </div>
     </div>
   );
@@ -36,7 +40,9 @@ const DogForm = ({ name, age }) => {
 class Container extends Component {
   
   componentDidMount() {
-    this.props.fetchDogData();
+    const { fetchDogData, location } = this.props;
+    const dogChipId = location.pathname.substr(5);
+    fetchDogData(dogChipId);
   };
 
   handleGoBack = () => {
@@ -56,7 +62,12 @@ class Container extends Component {
   };
 
   render() {
-    const { dogData, isLoading, error } = this.props;
+    const {
+      dogData,
+      isLoading,
+      error,
+      fields,
+    } = this.props;
 
     if (isLoading) {
       return 'loading...'
@@ -69,19 +80,19 @@ class Container extends Component {
     return (
       <>
         <Toolbar onToolbarItemClick={this.handleToolbarItemClick}/>
-        <DogForm {...dogData} />
+        <DogForm dogData={dogData} fields={fields}/>
       </>
     );
   }
 };
 
 Container.propTypes = {
-  dogData: PropTypes.shape({
-    name: PropTypes.string,
-    age: PropTypes.number,
-  }),
+  dogData: PropTypes.object,
   isLoading: PropTypes.bool,
   error: PropTypes.string,
+  fields: PropTypes.array,
+
+  fetchDogData: PropTypes.func,
 };
 
 export default Container;

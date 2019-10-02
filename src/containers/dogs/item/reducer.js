@@ -1,4 +1,7 @@
-import { ACTION_TYPES } from './constants';
+import {
+  ACTION_TYPES,
+  DOGS_ITEM_FIELDS,
+} from './constants';
 
 const initialState = {
   dogData: {
@@ -7,6 +10,7 @@ const initialState = {
   },
   isLoading: false,
   error: null,
+  fields: DOGS_ITEM_FIELDS,
 };
 
 const dogsItemReducer = (state = initialState, action) => {

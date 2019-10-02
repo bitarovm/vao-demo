@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   dogData: state.dogsItemState.dogData,
   isLoading: state.dogsItemState.isLoading,
   error: state.dogsItemState.error,
+  fields: state.dogsItemState.fields,
 });
 
 const withConnect = connect(mapStateToProps, actions);
