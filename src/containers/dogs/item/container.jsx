@@ -1,44 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Toolbar from '../../../components/dogsItemToolbar';
+import DogForm from '../../../components/dogForm';
 
 import './styles.css';
 
-const Toolbar = ({ onToolbarItemClick }) => {
-  const onBackClick = () => onToolbarItemClick({ id: 'back' });
-  
-  return (
-    <div className="toolbar">
-      <button onClick={onBackClick}>Back</button>
-    </div>
-  )
-};
-
-const DogForm = (props) => {
-  const {
-    dogData,
-    fields,
-  } = props;
-
-  return (
-    <div className="dog-form">
-      <div className="dog-form__image"></div>
-      
-      <div className="dog-form__data">
-        {
-          fields.map((field, index) => (
-            <div className="dog-form__param" key={index}>
-              <div className="dog-form__label">{field.text}</div>
-              <div className="dog-form__value">{dogData[field.id]}</div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  );
-};
-
 class Container extends Component {
-  
   componentDidMount() {
     const { fetchDogData, location } = this.props;
     const dogChipId = location.pathname.substr(5);

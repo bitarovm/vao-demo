@@ -1,0 +1,20 @@
+.dog-form {
+  display: flex;
+}
+
+.dog-form__image {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  margin-right: 30px;
+}
+
+.dog-form__param {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.dog-form__label {
+  width: 150px;
+}
