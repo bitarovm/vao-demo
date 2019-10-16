@@ -35,6 +35,12 @@ const dogsItemReducer = (state = initialState, action) => {
         error,
       };
 
+      case ACTION_TYPES.DOGS_ITEM_EDIT_DATA:
+        return {
+          ...state,
+          isEditing: payload.isEditing,
+        };
+
     default:
       return state;
   }

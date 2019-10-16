@@ -17,16 +17,22 @@ const dogsItemGetDataFail = (error) => ({
   error,
 });
 
-export const fetchDogData = (dogChipId) => {
+export const fetchDogDataAction = (dogChipId) => {
   return (dispatch) => {
     dispatch(dogsItemGetDataRequest());
 
     fetchDogsList()
       .then(dogs => {
         const dogData = dogs.find(dog => dog.chipId === dogChipId);
-        // console.log('dogData:', dogData);
         return dispatch(dogsItemGetDataSuccess(dogData));
       })
       .catch(error => dispatch(dogsItemGetDataFail(error)));
   };
 };
+
+export const dogsItemEditDataAction = (isEditing) => ({
+  type: ACTION_TYPES.DOGS_ITEM_EDIT_DATA,
+  payload: {
+    isEditing,
+  },
+});

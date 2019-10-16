@@ -7,9 +7,9 @@ import './styles.css';
 
 class Container extends Component {
   componentDidMount() {
-    const { fetchDogData, location } = this.props;
+    const { fetchDogDataAction, location } = this.props;
     const dogChipId = location.pathname.substr(5);
-    fetchDogData(dogChipId);
+    fetchDogDataAction(dogChipId);
   };
 
   handleGoBack = () => {
@@ -21,6 +21,10 @@ class Container extends Component {
     switch (id) {
       case 'back':
         this.handleGoBack();
+        break;
+
+      case 'edit':
+        this.props.dogsItemEditDataAction(!this.props.isEditing);
         break;
 
       default:
@@ -43,7 +47,7 @@ class Container extends Component {
 
     return (
       <>
-        <Toolbar onToolbarItemClick={this.handleToolbarItemClick}/>
+        <Toolbar isEditing={isEditing} onToolbarItemClick={this.handleToolbarItemClick}/>
         {
           isLoading
           ? <div className='loading'>loading...</div>
@@ -65,7 +69,8 @@ Container.propTypes = {
   isEditing: PropTypes.bool,
   fields: PropTypes.array,
 
-  fetchDogData: PropTypes.func,
+  fetchDogDataAction: PropTypes.func,
+  dogsItemEditDataAction: PropTypes.func,
 };
 
 export default Container;
