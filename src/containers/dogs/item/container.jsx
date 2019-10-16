@@ -36,10 +36,6 @@ class Container extends Component {
       fields,
     } = this.props;
 
-    if (isLoading) {
-      return 'loading...'
-    };
-
     if (error) {
       return `Error: ${error}`;
     }
@@ -47,7 +43,11 @@ class Container extends Component {
     return (
       <>
         <Toolbar onToolbarItemClick={this.handleToolbarItemClick}/>
-        <DogForm dogData={dogData} fields={fields}/>
+        {
+          isLoading
+          ? <div className='loading'>loading...</div>
+          : <DogForm dogData={dogData} fields={fields} />
+        }
       </>
     );
   }

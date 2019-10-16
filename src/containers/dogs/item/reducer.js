@@ -4,10 +4,7 @@ import {
 } from './constants';
 
 const initialState = {
-  dogData: {
-    name: null,
-    age: null,
-  },
+  dogData: {},
   isLoading: false,
   error: null,
   fields: DOGS_ITEM_FIELDS,

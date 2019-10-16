@@ -58,7 +58,7 @@ const Toolbar = (props) => {
 
       <div className='toolbar__item'>
         <label className='toolbar__item-label'>Поиск:</label>
-        <input type='text' valeu={searchString} onChange={handleSearchChange} />
+        <input type='text' value={searchString} onChange={handleSearchChange} />
       </div>
     </div>
   );
