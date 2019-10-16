@@ -33,6 +33,7 @@ class Container extends Component {
       dogData,
       isLoading,
       error,
+      isEditing,
       fields,
     } = this.props;
 
@@ -46,7 +47,11 @@ class Container extends Component {
         {
           isLoading
           ? <div className='loading'>loading...</div>
-          : <DogForm dogData={dogData} fields={fields} />
+          : <DogForm
+              dogData={dogData}
+              isEditing={isEditing}
+              fields={fields}
+            />
         }
       </>
     );
@@ -57,6 +62,7 @@ Container.propTypes = {
   dogData: PropTypes.object,
   isLoading: PropTypes.bool,
   error: PropTypes.string,
+  isEditing: PropTypes.bool,
   fields: PropTypes.array,
 
   fetchDogData: PropTypes.func,

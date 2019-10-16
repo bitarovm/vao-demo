@@ -7,6 +7,7 @@ const initialState = {
   dogData: {},
   isLoading: false,
   error: null,
+  isEditing: false,
   fields: DOGS_ITEM_FIELDS,
 };
 
