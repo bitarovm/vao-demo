@@ -30,13 +30,16 @@ export const fetchDogDataAction = (dogChipId) => {
   };
 };
 
-export const dogsItemEditDataAction = (isEditing) => ({
-  type: ACTION_TYPES.DOGS_ITEM_EDIT_DATA,
-  payload: {
-    isEditing,
-  },
+export const dogsItemChangeModeToEditAction = () => ({
+  type: ACTION_TYPES.DOGS_ITEM_CHANGE_MODE_TO_EDIT,
+  payload: {},
 });
 
+export const dogsItemChangeModeToViewAction = () => ({
+  type: ACTION_TYPES.DOGS_ITEM_CHANGE_MODE_TO_VIEW,
+  payload: {},
+});
+  
 export const dogsItemChangeFieldValueAction = (dogData) => ({
   type: ACTION_TYPES.DOGS_ITEM_CHANGE_FIELD_VALUE,
   payload: {

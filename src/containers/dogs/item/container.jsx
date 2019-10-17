@@ -13,8 +13,25 @@ class Container extends Component {
   };
 
   handleGoBack = () => {
-    const { history } = this.props;
+    const {
+      history,
+      dogsItemChangeModeToViewAction,
+    } = this.props;
+
+    dogsItemChangeModeToViewAction();
     history.push('/');
+  };
+
+  handleEditData = () => {
+    const {
+      isEditing,
+      dogsItemChangeModeToEditAction,
+      dogsItemChangeModeToViewAction,
+    } = this.props;
+
+    isEditing
+      ? dogsItemChangeModeToViewAction()
+      : dogsItemChangeModeToEditAction();
   };
 
   handleToolbarItemClick = ({ id }) => {
@@ -24,7 +41,7 @@ class Container extends Component {
         break;
 
       case 'edit':
-        this.props.dogsItemEditDataAction(!this.props.isEditing);
+        this.handleEditData(this.props.isEditing);
         break;
 
       default:
@@ -69,10 +86,12 @@ Container.propTypes = {
   isLoading: PropTypes.bool,
   error: PropTypes.string,
   isEditing: PropTypes.bool,
+  savedCopy: PropTypes.object,
   fields: PropTypes.array,
 
   fetchDogDataAction: PropTypes.func,
-  dogsItemEditDataAction: PropTypes.func,
+  dogsItemChangeModeToViewAction: PropTypes.func,
+  dogsItemChangeModeToEditAction: PropTypes.func,
   dogsItemChangeFieldValueAction: PropTypes.func,
 };
 

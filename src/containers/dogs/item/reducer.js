@@ -8,6 +8,7 @@ const initialState = {
   isLoading: false,
   error: null,
   isEditing: false,
+  savedCopy: {},
   fields: DOGS_ITEM_FIELDS,
 };
 
@@ -34,11 +35,24 @@ const dogsItemReducer = (state = initialState, action) => {
         isLoading: false,
         error,
       };
-
-      case ACTION_TYPES.DOGS_ITEM_EDIT_DATA:
+      
+      case ACTION_TYPES.DOGS_ITEM_CHANGE_MODE_TO_EDIT:
         return {
           ...state,
-          isEditing: payload.isEditing,
+          isEditing: true,
+          savedCopy: {
+            ...state.dogData,
+          },
+        };
+
+      case ACTION_TYPES.DOGS_ITEM_CHANGE_MODE_TO_VIEW:
+        return {
+          ...state,
+          isEditing: false,
+          dogData: {
+            ...state.savedCopy,
+          },
+          savedCopy: {},
         };
 
       case ACTION_TYPES.DOGS_ITEM_CHANGE_FIELD_VALUE:
