@@ -39,6 +39,7 @@ class Container extends Component {
       error,
       isEditing,
       fields,
+      dogsItemChangeFieldValueAction,
     } = this.props;
 
     if (error) {
@@ -55,6 +56,7 @@ class Container extends Component {
               dogData={dogData}
               isEditing={isEditing}
               fields={fields}
+              onDataChange={dogsItemChangeFieldValueAction}
             />
         }
       </>
@@ -71,6 +73,7 @@ Container.propTypes = {
 
   fetchDogDataAction: PropTypes.func,
   dogsItemEditDataAction: PropTypes.func,
+  dogsItemChangeFieldValueAction: PropTypes.func,
 };
 
 export default Container;

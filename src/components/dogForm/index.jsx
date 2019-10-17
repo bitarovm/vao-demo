@@ -9,10 +9,16 @@ const DogForm = (props) => {
     dogData,
     isEditing,
     fields,
+    onDataChange,
   } = props;
   
   const handleChange = (event) => {
+    const { name, value, } = event.target;
 
+    onDataChange({
+      fieldName: name,
+      fieldValue: value,
+    });
   };
 
   return (
@@ -159,6 +165,7 @@ DogForm.propTypes = {
   dogData: PropTypes.object,
   isEditing: PropTypes.bool,
   fields: PropTypes.array,
+  onDataChange: PropTypes.func,
 };
 
 export default DogForm;

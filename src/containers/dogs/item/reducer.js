@@ -41,6 +41,15 @@ const dogsItemReducer = (state = initialState, action) => {
           isEditing: payload.isEditing,
         };
 
+      case ACTION_TYPES.DOGS_ITEM_CHANGE_FIELD_VALUE:
+        return {
+          ...state,
+          dogData: {
+            ...state.dogData,
+            [payload.fieldName]: payload.fieldValue,
+          },
+        };
+
     default:
       return state;
   }

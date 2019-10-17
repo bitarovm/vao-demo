@@ -36,3 +36,10 @@ export const dogsItemEditDataAction = (isEditing) => ({
     isEditing,
   },
 });
+
+export const dogsItemChangeFieldValueAction = (dogData) => ({
+  type: ACTION_TYPES.DOGS_ITEM_CHANGE_FIELD_VALUE,
+  payload: {
+    ...dogData,
+  },
+});
