@@ -15,23 +15,15 @@ class Container extends Component {
   handleGoBack = () => {
     const {
       history,
-      dogsItemChangeModeToViewAction,
-    } = this.props;
-
-    dogsItemChangeModeToViewAction();
-    history.push('/');
-  };
-
-  handleEditData = () => {
-    const {
       isEditing,
-      dogsItemChangeModeToEditAction,
       dogsItemChangeModeToViewAction,
     } = this.props;
 
-    isEditing
-      ? dogsItemChangeModeToViewAction()
-      : dogsItemChangeModeToEditAction();
+    if (isEditing) {
+      dogsItemChangeModeToViewAction();
+    }
+    
+    history.push('/');
   };
 
   handleToolbarItemClick = ({ id }) => {
@@ -41,7 +33,11 @@ class Container extends Component {
         break;
 
       case 'edit':
-        this.handleEditData(this.props.isEditing);
+        this.props.dogsItemChangeModeToEditAction();
+        break;
+
+      case 'cancel':
+        this.props.dogsItemChangeModeToViewAction();
         break;
 
       default:
