@@ -1,0 +1,8 @@
+.dog-form__param {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.dog-form__label {
+  width: 150px;
+}

@@ -12,61 +12,128 @@ export const DOGS_ITEM_FIELDS = [
   {
     id: 'name',
     text: 'Имя',
-    visible: true,
+    type: 'input',
   },
   {
     id: 'birthday',
     text: 'Год рождения',
-    visible: true,
+    type: 'input',
   },
   {
     id: 'sex',
     text: 'Пол',
-    visible: true,
-  },
-  {
-    id: 'description',
-    text: 'Описание',
-    visible: true,
+    type: 'select',
   },
   {
     id: 'row',
     text: 'Ряд',
-    visible: true,
+    type: 'input',
   },
   {
     id: 'avairy',
     text: 'Вольер',
-    visible: true,
+    type: 'input',
   },
   {
     id: 'catalogLink',
     text: 'Ссылка',
-    visible: true,
+    type: 'input',
   },
   {
     id: 'chipId',
     text: 'ИД',
-    visible: true,
+    type: 'input',
   },
   {
     id: 'isWalking',
     text: 'Гуляет',
-    visible: true,
+    type: 'select',
   },
   {
     id: 'shelterDay',
     text: 'Дата вылова',
-    visible: true,
+    type: 'input',
   },
   {
     id: 'status',
     text: 'Статус',
-    visible: true,
+    type: 'select',
   },
   {
     id: 'walkingGroup',
     text: 'Группа выгула',
-    visible: true,
+    type: 'select',
+  },
+  {
+    id: 'description',
+    text: 'Описание',
+    type: 'textarea',
   },
 ];
+
+export const DICTIONARIES = {
+  sex: [
+    {
+      label: 'мужской',
+      value: 'male',
+    },
+    {
+      label: 'женский',
+      value: 'female',
+    },
+  ],
+  isWalking: [
+    {
+      label: 'да',
+      value: true,
+    },
+    {
+      label: 'нет',
+      value: false,
+    },
+  ],
+  status: [
+    {
+      label: 'healthy',
+      value: 'healthy',
+    },
+    {
+      label: 'hospice',
+      value: 'hospice',
+    },
+    {
+      label: 'insulator',
+      value: 'insulator',
+    },
+    {
+      label: 'supervised',
+      value: 'supervised',
+    },
+    {
+      label: 'dead',
+      value: 'dead',
+    },
+  ],
+  walkingGroup: [
+    {
+      label: 'Выгул №1',
+      value: '1',
+    },
+    {
+      label: 'Выгул №2',
+      value: '2',
+    },
+    {
+      label: 'Выгул №3',
+      value: '3',
+    },
+    {
+      label: 'Выгул №4',
+      value: '4',
+    },
+    {
+      label: 'Не гуляет',
+      value: 'null',
+    },
+  ],
+};

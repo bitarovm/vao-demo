@@ -10,11 +10,7 @@
   margin-right: 30px;
 }
 
-.dog-form__param {
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.dog-form__label {
-  width: 150px;
+.dog-form__submit {
+  display: block;
+  margin: 0 auto;
 }

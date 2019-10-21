@@ -1,6 +1,7 @@
 import {
   ACTION_TYPES,
   DOGS_ITEM_FIELDS,
+  DICTIONARIES,
 } from './constants';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   isEditing: false,
   savedCopy: {},
   fields: DOGS_ITEM_FIELDS,
+  dictionaries: DICTIONARIES,
 };
 
 const dogsItemReducer = (state = initialState, action) => {
