@@ -41,7 +41,7 @@ export const DOGS_ITEM_FIELDS = [
   {
     id: 'catalogLink',
     text: 'Ссылка',
-    type: 'input',
+    type: 'link',
   },
   {
     id: 'chipId',

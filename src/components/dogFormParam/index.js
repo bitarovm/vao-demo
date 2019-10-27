@@ -5,6 +5,7 @@ import './styles.css';
 
 const Input = ({ name, value, onChange }) => (
   <input
+    className='dog-form__field'
     type='text'
     name={name}
     value={value}
@@ -14,6 +15,7 @@ const Input = ({ name, value, onChange }) => (
 
 const Textarea = ({ name, value, onChange }) => (
   <textarea
+    className='dog-form__field'
     name={name}
     value={value}
     onChange={onChange}
@@ -21,7 +23,12 @@ const Textarea = ({ name, value, onChange }) => (
 );
 
 const Select = ({ name, value, options, onChange }) => (
-  <select name={name} value={value} onChange={onChange}>
+  <select
+    className='dog-form__field'
+    name={name}
+    value={value}
+    onChange={onChange}
+  >
     {
       options.map((option, index) =>
         <option key={index} value={option.value}>{option.label}</option>
@@ -44,6 +51,7 @@ const DogFormParam = (props) => {
   const renderFieldEditMode = () => {
     switch (type) {
       case 'input':
+      case 'link':
         return <Input name={fieldId} value={value} onChange={onChange} />
     
       case 'textarea':
@@ -58,7 +66,7 @@ const DogFormParam = (props) => {
   };
 
   const renderFieldViewMode = () => (
-    (fieldId === 'catalogLink')
+    (type === 'link')
       ? <a href={value}>{value}</a>
       : <div>{String(value)}</div>
   );

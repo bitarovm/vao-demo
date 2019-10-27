@@ -16,22 +16,22 @@ export const DOGS_LIST_COLUMNS = [
   },
   {
     id: 'name',
-    text: 'имя',
+    text: 'Имя',
     visible: true,
   },
   {
     id: 'birthday',
-    text: 'год рождения',
+    text: 'Год рождения',
     visible: true,
   },
   {
     id: 'avairy',
-    text: 'вольер',
+    text: 'Вольер',
     visible: true,
   },
   {
     id: 'sex',
-    text: 'пол',
+    text: 'Пол',
     visible: true,
   },
 ];
@@ -39,25 +39,25 @@ export const DOGS_LIST_COLUMNS = [
 export const SORT_TYPES = [
   {
     id: 'nameAsc',
-    label: 'Имя (asc)',
+    label: 'Имя (возр)',
     fieldId: 'name',
     direction: 'asc',
   },
   {
     id: 'nameDesc',
-    label: 'Имя (desc)',
+    label: 'Имя (убыв)',
     fieldId: 'name',
     direction: 'desc',
   },
   {
     id: 'birthdayAsc',
-    label: 'Год рождения (asc)',
+    label: 'Год рождения (возр)',
     fieldId: 'birthday',
     direction: 'asc',
   },
   {
     id: 'birthdayDesc',
-    label: 'Год рождения (desc)',
+    label: 'Год рождения (убыв)',
     fieldId: 'birthday',
     direction: 'desc',
   },

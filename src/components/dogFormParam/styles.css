@@ -5,4 +5,9 @@
 
 .dog-form__label {
   width: 150px;
+  font-size: 14px;
+}
+
+.dog-form__field {
+  width: 300px;
 }
