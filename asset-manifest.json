@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/vao-demo/static/css/main.2cde180a.chunk.css",
+    "main.js": "/vao-demo/static/js/main.38eff1b4.chunk.js",
+    "main.js.map": "/vao-demo/static/js/main.38eff1b4.chunk.js.map",
+    "runtime~main.js": "/vao-demo/static/js/runtime~main.c341c129.js",
+    "runtime~main.js.map": "/vao-demo/static/js/runtime~main.c341c129.js.map",
+    "static/js/2.74ddfd2e.chunk.js": "/vao-demo/static/js/2.74ddfd2e.chunk.js",
+    "static/js/2.74ddfd2e.chunk.js.map": "/vao-demo/static/js/2.74ddfd2e.chunk.js.map",
+    "index.html": "/vao-demo/index.html",
+    "precache-manifest.0c0066777660546107f937c67715dd02.js": "/vao-demo/precache-manifest.0c0066777660546107f937c67715dd02.js",
+    "service-worker.js": "/vao-demo/service-worker.js",
+    "static/css/main.2cde180a.chunk.css.map": "/vao-demo/static/css/main.2cde180a.chunk.css.map"
+  }
+}
