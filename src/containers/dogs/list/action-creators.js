@@ -1,5 +1,5 @@
 import { ACTION_TYPES } from './constants';
-import { fetchDogsList } from '../../../backend/dogsList';
+import { fetchDogsList } from '../../../backend';
 
 const dogsListGetDataRequest = () => ({
   type: ACTION_TYPES.DOGS_LIST_GET_DATA_REQUEST,

@@ -53,6 +53,7 @@ class Container extends Component {
       isEditing,
       fields,
       dictionaries,
+      saveDogDataAction,
       dogsItemChangeFieldValueAction,
     } = this.props;
 
@@ -72,6 +73,7 @@ class Container extends Component {
               fields={fields}
               dictionaries={dictionaries}
               onDataChange={dogsItemChangeFieldValueAction}
+              onSubmit={saveDogDataAction}
             />
         }
       </>
@@ -89,6 +91,7 @@ Container.propTypes = {
   dictionaries: PropTypes.object,
 
   fetchDogDataAction: PropTypes.func,
+  saveDogDataAction: PropTypes.func,
   dogsItemChangeModeToViewAction: PropTypes.func,
   dogsItemChangeModeToEditAction: PropTypes.func,
   dogsItemChangeFieldValueAction: PropTypes.func,

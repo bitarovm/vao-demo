@@ -29,6 +29,9 @@ const dogsItemReducer = (state = initialState, action) => {
         ...state,
         dogData: payload.dogData,
         isLoading: false,
+        savedCopy: {
+          ...payload.dogData,
+        },
       };
     
     case ACTION_TYPES.DOGS_ITEM_GET_DATA_FAIL:

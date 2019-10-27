@@ -11,6 +11,7 @@ const DogForm = (props) => {
     fields,
     dictionaries,
     onDataChange,
+    onSubmit,
   } = props;
   
   const handleChange = (event) => {
@@ -23,8 +24,8 @@ const DogForm = (props) => {
   };
 
   const handleSubmit = (event) => {
-    alert(`Данные упешно сохранены!`);
     event.preventDefault();
+    onSubmit(dogData);
   };
 
   return (
@@ -65,6 +66,7 @@ DogForm.propTypes = {
   fields: PropTypes.array,
   dictionaries: PropTypes.object,
   onDataChange: PropTypes.func,
+  onSubmit: PropTypes.func,
 };
 
 export default DogForm;

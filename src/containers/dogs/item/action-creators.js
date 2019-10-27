@@ -1,5 +1,8 @@
 import { ACTION_TYPES } from './constants';
-import { fetchDogsList } from '../../../backend/dogsList';
+import {
+  fetchDogById,
+  saveDogData,
+} from '../../../backend';
 
 const dogsItemGetDataRequest = () => ({
   type: ACTION_TYPES.DOGS_ITEM_GET_DATA_REQUEST,
@@ -17,16 +20,42 @@ const dogsItemGetDataFail = (error) => ({
   error,
 });
 
-export const fetchDogDataAction = (dogChipId) => {
+export const fetchDogDataAction = (chipId) => {
   return (dispatch) => {
     dispatch(dogsItemGetDataRequest());
 
-    fetchDogsList()
-      .then(dogs => {
-        const dogData = dogs.find(dog => dog.chipId === dogChipId);
-        return dispatch(dogsItemGetDataSuccess(dogData));
-      })
+    fetchDogById(chipId)
+      .then(dogData => dispatch(dogsItemGetDataSuccess(dogData)))
       .catch(error => dispatch(dogsItemGetDataFail(error)));
+  };
+};
+
+const dogsItemSaveDogDataRequest = () => ({
+  type: ACTION_TYPES.DOGS_ITEM_SAVE_DATA_REQUEST,
+});
+
+const dogsItemSaveDogDataSuccess = (dogData) => ({
+  type: ACTION_TYPES.DOGS_ITEM_SAVE_DATA_SUCCESS,
+  payload: {
+    dogData,
+  },
+});
+
+const dogsItemSaveDogDataFail = (error) => ({
+  type: ACTION_TYPES.DOGS_ITEM_SAVE_DATA_FAIL,
+  error,
+});
+
+export const saveDogDataAction = (dogData) => {
+  return (dispatch) => {
+    dispatch(dogsItemSaveDogDataRequest());
+
+    saveDogData(dogData)
+      .then(chipId => {
+        dispatch(dogsItemSaveDogDataSuccess(chipId));
+        dispatch(fetchDogDataAction(chipId));
+      })
+      .catch(error => dispatch(dogsItemSaveDogDataFail(error)));
   };
 };
 
