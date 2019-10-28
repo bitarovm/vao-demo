@@ -29,9 +29,7 @@ const isLoadingSelector = state => state.isLoading;
 
 const errorSelector = state => state.error;
 
-const columnsSelector = state => (
-  state.columns.filter(column => column.visible)
-);
+const columnsSelector = state => Object.values(state.columns).filter(column => column.visible);
 
 const sortParamsSelector = (state) => state.sortParams;
 

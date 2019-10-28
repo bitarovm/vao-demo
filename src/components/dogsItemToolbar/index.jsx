@@ -11,16 +11,11 @@ const Toolbar = (props) => {
 
   const onBackClick = () => onToolbarItemClick({ id: 'back' });
   const onEditClick = () => onToolbarItemClick({ id: 'edit' });
-  const onCancelClick = () => onToolbarItemClick({ id: 'cancel' });
   
   return (
     <div className="toolbar">
-      <button onClick={onBackClick}>Back</button>
-      {
-        isEditing
-          ? <button onClick={onCancelClick}>Cancel</button>
-          : <button onClick={onEditClick}>Edit</button>
-      }
+      <button className="toolbar__button" onClick={onBackClick}>Назад</button>
+      <button className="toolbar__button" onClick={onEditClick} disabled={isEditing}>Изменить</button>
     </div>
   );
 };

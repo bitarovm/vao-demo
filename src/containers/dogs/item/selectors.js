@@ -8,7 +8,7 @@ const isEditingSelector = (state) => state.isEditing;
 
 const savedCopySelector = (state) => state.savedCopy;
 
-const fieldsSelector = (state) => state.fields;
+const fieldsSelector = (state) => Object.values(state.fields);
 
 const dictionariesSelector = (state) => state.dictionaries;
 

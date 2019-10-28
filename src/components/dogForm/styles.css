@@ -10,7 +10,6 @@
   margin-right: 30px;
 }
 
-.dog-form__submit {
-  display: block;
-  margin: 0 auto;
+.dog-form__button {
+  margin-right: 8px;
 }

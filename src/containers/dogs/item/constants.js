@@ -1,3 +1,8 @@
+import {
+  DOGS_FIELDS_ID,
+  DOGS_FIELDS,
+} from '../../../constants';
+
 export const ACTION_TYPES = {
   DOGS_ITEM_GET_DATA_REQUEST: 'DOGS_ITEM_GET_DATA_REQUEST',
   DOGS_ITEM_GET_DATA_SUCCESS: 'DOGS_ITEM_GET_DATA_SUCCESS',
@@ -12,68 +17,56 @@ export const ACTION_TYPES = {
   DOGS_ITEM_CHANGE_FIELD_VALUE: 'DOGS_ITEM_CHANGE_FIELD_VALUE',
 };
 
-export const DOGS_ITEM_FIELDS = [
-  {
-    id: 'name',
-    text: 'Имя',
+export const DOGS_ITEM_FIELDS = {
+  [DOGS_FIELDS_ID.NAME]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.NAME],
     type: 'input',
   },
-  {
-    id: 'birthday',
-    text: 'Год рождения',
+  [DOGS_FIELDS_ID.BIRTHDAY]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.BIRTHDAY],
     type: 'input',
   },
-  {
-    id: 'sex',
-    text: 'Пол',
+  [DOGS_FIELDS_ID.SEX]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.SEX],
     type: 'select',
   },
-  {
-    id: 'row',
-    text: 'Ряд',
+  [DOGS_FIELDS_ID.ROW]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.ROW],
     type: 'input',
   },
-  {
-    id: 'avairy',
-    text: 'Вольер',
+  [DOGS_FIELDS_ID.AVAIRY]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.AVAIRY],
     type: 'input',
   },
-  {
-    id: 'catalogLink',
-    text: 'Ссылка',
+  [DOGS_FIELDS_ID.CATALOG_LINK]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.CATALOG_LINK],
     type: 'link',
   },
-  {
-    id: 'chipId',
-    text: 'ИД',
+  [DOGS_FIELDS_ID.CHIP_ID]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.CHIP_ID],
     type: 'input',
   },
-  {
-    id: 'isWalking',
-    text: 'Гуляет',
+  [DOGS_FIELDS_ID.ISWALKING]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.ISWALKING],
     type: 'select',
   },
-  {
-    id: 'shelterDay',
-    text: 'Дата вылова',
+  [DOGS_FIELDS_ID.SHELTERDAY]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.SHELTERDAY],
     type: 'input',
   },
-  {
-    id: 'status',
-    text: 'Статус',
+  [DOGS_FIELDS_ID.STATUS]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.STATUS],
     type: 'select',
   },
-  {
-    id: 'walkingGroup',
-    text: 'Группа выгула',
+  [DOGS_FIELDS_ID.WALKING_GROUP]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.WALKING_GROUP],
     type: 'select',
   },
-  {
-    id: 'description',
-    text: 'Описание',
+  [DOGS_FIELDS_ID.DESCRIPTION]: {
+    ...DOGS_FIELDS[DOGS_FIELDS_ID.DESCRIPTION],
     type: 'textarea',
   },
-];
+}
 
 export const DICTIONARIES = {
   sex: [
@@ -99,23 +92,19 @@ export const DICTIONARIES = {
   status: [
     {
       label: 'healthy',
-      value: 'healthy',
+      value: 'здоровая',
     },
     {
       label: 'hospice',
-      value: 'hospice',
+      value: 'хоспис',
     },
     {
       label: 'insulator',
-      value: 'insulator',
+      value: 'изолятор',
     },
     {
       label: 'supervised',
       value: 'supervised',
-    },
-    {
-      label: 'dead',
-      value: 'dead',
     },
   ],
   walkingGroup: [

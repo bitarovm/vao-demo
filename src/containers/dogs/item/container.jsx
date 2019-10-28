@@ -26,7 +26,7 @@ class Container extends Component {
     history.push('/');
   };
 
-  handleToolbarItemClick = ({ id }) => {
+  handleButtonClick = ({ id }) => {
     switch (id) {
       case 'back':
         this.handleGoBack();
@@ -63,7 +63,7 @@ class Container extends Component {
 
     return (
       <>
-        <Toolbar isEditing={isEditing} onToolbarItemClick={this.handleToolbarItemClick}/>
+        <Toolbar isEditing={isEditing} onToolbarItemClick={this.handleButtonClick}/>
         {
           isLoading
           ? <div className='loading'>loading...</div>
@@ -73,6 +73,7 @@ class Container extends Component {
               fields={fields}
               dictionaries={dictionaries}
               onDataChange={dogsItemChangeFieldValueAction}
+              onButtonClick={this.handleButtonClick}
               onSubmit={saveDogDataAction}
             />
         }

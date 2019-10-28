@@ -11,6 +11,7 @@ const DogForm = (props) => {
     fields,
     dictionaries,
     onDataChange,
+    onButtonClick,
     onSubmit,
   } = props;
   
@@ -22,6 +23,8 @@ const DogForm = (props) => {
       fieldValue: value,
     });
   };
+
+  const onCancelClick = () => onButtonClick({ id: 'cancel' });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -53,7 +56,10 @@ const DogForm = (props) => {
 
       {
         isEditing &&
-        <input className="dog-form__submit" type="submit" value="Сохранить" />
+          <>
+            <button className="dog-form__button" onClick={onCancelClick}>Отменить</button>
+            <button className="dog-form__button" type="submit">Сохранить</button>
+          </>
       }
     </form>
 
@@ -66,6 +72,7 @@ DogForm.propTypes = {
   fields: PropTypes.array,
   dictionaries: PropTypes.object,
   onDataChange: PropTypes.func,
+  onButtonClick: PropTypes.func,
   onSubmit: PropTypes.func,
 };
 
