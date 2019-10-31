@@ -3,29 +3,27 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-const Toolbar = (props) => {
-  const {
-    sortParams,
-    groupParams,
-    searchString,
-    onParamsChange
-  } = props;
-
-  const handleSortChange = (event) => {
+const Toolbar = ({
+  sortParams,
+  groupParams,
+  searchString,
+  onParamsChange
+}) => {
+  const handleSortChange = event => {
     onParamsChange({
       fieldId: 'sort',
       fieldValue: event.target.value,
     });
   };
 
-  const handleGroupChange = (event) => {
+  const handleGroupChange = event => {
     onParamsChange({
       fieldId: 'group',
       fieldValue: event.target.value,
     });
   };
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = event => {
     onParamsChange({
       fieldId: 'search',
       fieldValue: event.target.value,

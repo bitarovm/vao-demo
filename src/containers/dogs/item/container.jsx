@@ -9,6 +9,7 @@ class Container extends Component {
   componentDidMount() {
     const { fetchDogDataAction, location } = this.props;
     const dogChipId = location.pathname.substr(5);
+
     fetchDogDataAction(dogChipId);
   };
 
@@ -63,7 +64,10 @@ class Container extends Component {
 
     return (
       <>
-        <Toolbar isEditing={isEditing} onToolbarItemClick={this.handleButtonClick}/>
+        <Toolbar
+          isEditing={isEditing}
+          onToolbarItemClick={this.handleButtonClick}
+        />
         {
           isLoading
           ? <div className='loading'>loading...</div>

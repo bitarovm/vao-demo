@@ -4,28 +4,24 @@ import DogsTable from '../dogsTable';
 
 import './styles.css';
 
-const DogsGroup = (props) => {
-  const {
-    title,
-    items,
-    isLoading,
-    columns,
-    onItemClick,
-  } = props;
-  
-  return (
-    <div className="group">
-      {title && <div className="title">{title}</div>}
+const DogsGroup = ({
+  title,
+  items,
+  isLoading,
+  columns,
+  onItemClick,
+}) => (
+  <div className="group">
+    {title && <div className="title">{title}</div>}
 
-      <DogsTable
-        dogsList={items}
-        isLoading={isLoading}
-        columns={columns}
-        onRowClick={onItemClick}
-      />
-    </div>
+    <DogsTable
+      dogsList={items}
+      isLoading={isLoading}
+      columns={columns}
+      onRowClick={onItemClick}
+    />
+  </div>
   );
-};
 
 DogsGroup.propTypes = {
   title: PropTypes.string,

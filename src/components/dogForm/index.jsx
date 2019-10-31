@@ -4,29 +4,23 @@ import DogFormParam from '../dogFormParam';
 
 import './styles.css';
 
-const DogForm = (props) => {
-  const {
-    dogData,
-    isEditing,
-    fields,
-    dictionaries,
-    onDataChange,
-    onButtonClick,
-    onSubmit,
-  } = props;
-  
-  const handleChange = (event) => {
-    const { name, value, } = event.target;
-
-    onDataChange({
-      fieldName: name,
-      fieldValue: value,
-    });
-  };
+const DogForm = ({
+  dogData,
+  isEditing,
+  fields,
+  dictionaries,
+  onDataChange,
+  onButtonClick,
+  onSubmit,
+}) => {
+  const handleChange = ({ target: { name, value } }) => onDataChange({
+    fieldName: name,
+    fieldValue: value,
+  });
 
   const onCancelClick = () => onButtonClick({ id: 'cancel' });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     onSubmit(dogData);
   };

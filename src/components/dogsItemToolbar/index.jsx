@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-const Toolbar = (props) => {
-  const {
-    isEditing,
-    onToolbarItemClick,
-  } = props;
-
+const Toolbar = ({
+  isEditing,
+  onToolbarItemClick,
+}) => {
   const onBackClick = () => onToolbarItemClick({ id: 'back' });
   const onEditClick = () => onToolbarItemClick({ id: 'edit' });
   

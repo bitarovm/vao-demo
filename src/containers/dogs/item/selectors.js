@@ -1,16 +1,16 @@
-const dogDataSelector = (state) => state.dogData;
+const dogDataSelector = state => state.dogData;
 
-const isLoadingSelector = (state) => state.isLoading;
+const isLoadingSelector = state => state.isLoading;
 
-const errorSelector = (state) => state.error;
+const errorSelector = state => state.error;
 
-const isEditingSelector = (state) => state.isEditing;
+const isEditingSelector = state => state.isEditing;
 
-const savedCopySelector = (state) => state.savedCopy;
+const savedCopySelector = state => state.savedCopy;
 
-const fieldsSelector = (state) => Object.values(state.fields);
+const fieldsSelector = state => Object.values(state.fields);
 
-const dictionariesSelector = (state) => state.dictionaries;
+const dictionariesSelector = state => state.dictionaries;
 
 const mapStateToProps = ({ dogsItemState: state }) => ({
   dogData: dogDataSelector(state),

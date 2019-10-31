@@ -37,17 +37,15 @@ const Select = ({ name, value, options, onChange }) => (
   </select>
 );
 
-const DogFormParam = (props) => {
-  const {
-    isEditing,
-    fieldId,
-    label,
-    value,
-    type,
-    options,
-    onChange,
-  } = props;
-
+const DogFormParam = ({
+  isEditing,
+  fieldId,
+  label,
+  value,
+  type,
+  options,
+  onChange,
+}) => {
   const renderFieldEditMode = () => {
     switch (type) {
       case 'input':

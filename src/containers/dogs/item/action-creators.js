@@ -8,46 +8,45 @@ const dogsItemGetDataRequest = () => ({
   type: ACTION_TYPES.DOGS_ITEM_GET_DATA_REQUEST,
 });
 
-const dogsItemGetDataSuccess = (dogData) => ({
+const dogsItemGetDataSuccess = dogData => ({
   type: ACTION_TYPES.DOGS_ITEM_GET_DATA_SUCCESS,
   payload: {
     dogData,
   },
 });
 
-const dogsItemGetDataFail = (error) => ({
+const dogsItemGetDataFail = error => ({
   type: ACTION_TYPES.DOGS_ITEM_GET_DATA_FAIL,
   error,
 });
 
-export const fetchDogDataAction = (chipId) => {
-  return (dispatch) => {
+export const fetchDogDataAction = chipId =>
+  dispatch => {
     dispatch(dogsItemGetDataRequest());
 
     fetchDogById(chipId)
       .then(dogData => dispatch(dogsItemGetDataSuccess(dogData)))
       .catch(error => dispatch(dogsItemGetDataFail(error)));
   };
-};
 
 const dogsItemSaveDogDataRequest = () => ({
   type: ACTION_TYPES.DOGS_ITEM_SAVE_DATA_REQUEST,
 });
 
-const dogsItemSaveDogDataSuccess = (dogData) => ({
+const dogsItemSaveDogDataSuccess = dogData => ({
   type: ACTION_TYPES.DOGS_ITEM_SAVE_DATA_SUCCESS,
   payload: {
     dogData,
   },
 });
 
-const dogsItemSaveDogDataFail = (error) => ({
+const dogsItemSaveDogDataFail = error => ({
   type: ACTION_TYPES.DOGS_ITEM_SAVE_DATA_FAIL,
   error,
 });
 
-export const saveDogDataAction = (dogData) => {
-  return (dispatch) => {
+export const saveDogDataAction = dogData =>
+  dispatch => {
     dispatch(dogsItemSaveDogDataRequest());
 
     saveDogData(dogData)
@@ -57,7 +56,6 @@ export const saveDogDataAction = (dogData) => {
       })
       .catch(error => dispatch(dogsItemSaveDogDataFail(error)));
   };
-};
 
 export const dogsItemChangeModeToEditAction = () => ({
   type: ACTION_TYPES.DOGS_ITEM_CHANGE_MODE_TO_EDIT,
@@ -69,7 +67,7 @@ export const dogsItemChangeModeToViewAction = () => ({
   payload: {},
 });
   
-export const dogsItemChangeFieldValueAction = (dogData) => ({
+export const dogsItemChangeFieldValueAction = dogData => ({
   type: ACTION_TYPES.DOGS_ITEM_CHANGE_FIELD_VALUE,
   payload: {
     ...dogData,

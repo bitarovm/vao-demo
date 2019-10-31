@@ -18,18 +18,18 @@ class Container extends Component {
     }
   };
   
-  handleToolbarParamsChange = (param) => {
-    switch (param.fieldId) {
+  handleToolbarParamsChange = ({ fieldId, fieldValue }) => {
+    switch (fieldId) {
       case 'sort':
-        this.props.dogsListChangeSortAction(param.fieldValue);
+        this.props.dogsListChangeSortAction(fieldValue);
         break;
 
       case 'group':
-        this.props.dogsListChangeGroupAction(param.fieldValue);
+        this.props.dogsListChangeGroupAction(fieldValue);
         break;
 
       case 'search':
-        this.props.dogsListChangeSearchAction(param.fieldValue);
+        this.props.dogsListChangeSearchAction(fieldValue);
         break;
 
       default:

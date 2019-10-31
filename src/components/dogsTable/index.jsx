@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-const DogsTable = (props) => {
-  const {
-    dogsList,
-    isLoading,
-    columns,
-    onRowClick,
-  } = props;
-
-  const renderRow = (item) => {
+const DogsTable = ({
+  dogsList,
+  isLoading,
+  columns,
+  onRowClick,
+}) => {
+  const renderRow = item => {
     const handleClick = () => onRowClick({ id: item.chipId });
 
     return (
