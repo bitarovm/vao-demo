@@ -16,9 +16,3 @@ body {
 #root {
   min-height: 100%;
 }
-
-.main-wrapper {
-  width: 70%;
-  margin: 0 auto;
-  padding: 50px 0;
-}

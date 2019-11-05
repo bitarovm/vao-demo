@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import {
+  StyledToolbar,
+  StyledToolbarButton,
+} from './styles.js';
 
 const Toolbar = ({
   isEditing,
@@ -11,10 +14,10 @@ const Toolbar = ({
   const onEditClick = () => onToolbarItemClick({ id: 'edit' });
   
   return (
-    <div className="toolbar">
-      <button className="toolbar__button" onClick={onBackClick}>Назад</button>
-      <button className="toolbar__button" onClick={onEditClick} disabled={isEditing}>Изменить</button>
-    </div>
+    <StyledToolbar>
+      <StyledToolbarButton onClick={onBackClick}>Назад</StyledToolbarButton>
+      <StyledToolbarButton onClick={onEditClick} disabled={isEditing}>Изменить</StyledToolbarButton>
+    </StyledToolbar>
   );
 };
 

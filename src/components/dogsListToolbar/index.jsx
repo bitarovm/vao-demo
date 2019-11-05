@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import {
+  StyledToolbar,
+  StyledToolbarItem,
+  StyledToolbarLabel,
+} from './styles.js';
 
 const Toolbar = ({
   sortParams,
@@ -31,9 +35,9 @@ const Toolbar = ({
   };
 
   return (
-    <div className='toolbar'>
-      <div className='toolbar__item'>
-        <label className='toolbar__item-label'>Сортировка:</label>
+    <StyledToolbar>
+      <StyledToolbarItem>
+        <StyledToolbarLabel>Сортировка:</StyledToolbarLabel>
         <select defaultValue={sortParams.fieldId} onChange={handleSortChange}>
           {
             sortParams.items.map(item => 
@@ -41,10 +45,10 @@ const Toolbar = ({
             )
           }
         </select>
-      </div>
+      </StyledToolbarItem>
 
-      <div className='toolbar__item'>
-        <label className='toolbar__item-label'>Группировка:</label>
+      <StyledToolbarItem>
+        <StyledToolbarLabel>Группировка:</StyledToolbarLabel>
         <select defaultValue={groupParams.fieldId} onChange={handleGroupChange}>
           {
             groupParams.items.map(item => 
@@ -52,13 +56,13 @@ const Toolbar = ({
             )
           }
         </select>
-      </div>
+      </StyledToolbarItem>
 
-      <div className='toolbar__item'>
-        <label className='toolbar__item-label'>Поиск:</label>
+      <StyledToolbarItem>
+        <StyledToolbarLabel>Поиск:</StyledToolbarLabel>
         <input type='text' value={searchString} onChange={handleSearchChange} />
-      </div>
-    </div>
+      </StyledToolbarItem>
+    </StyledToolbar>
   );
 };
 

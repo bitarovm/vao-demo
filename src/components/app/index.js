@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import DogsListContainer from '../../containers/dogs/list';
 import DogsItemContainer from '../../containers/dogs/item';
 
-import './styles.css';
+import { Wrapper } from './styles.js';
 
 const App = () => (
-  <div className='main-wrapper'>
+  <Wrapper>
     <Router>
       <Route path="/" exact component={DogsListContainer} />
       <Route path="/dog/:id" component={DogsItemContainer} />
     </Router>
-  </div>
-  );
+  </Wrapper>
+);
 
 export default App;

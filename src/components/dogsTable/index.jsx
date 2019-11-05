@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import {
+  StyledDogsTable,
+  StyledDogsTableCell,
+  StyledDogsTableLoading,
+  StyledDogsTableRow,
+  StyledDogsTableRowHead,
+} from './styles.js';
 
 const DogsTable = ({
   dogsList,
@@ -13,32 +19,32 @@ const DogsTable = ({
     const handleClick = () => onRowClick({ id: item.chipId });
 
     return (
-      <div className='dogs-table__row' onClick={handleClick} key={item.chipId}>
+      <StyledDogsTableRow onClick={handleClick} key={item.chipId}>
         {
           columns.map((field, index) => (
-            <div className="dogs-table__cell" key={index}>{item[field.id]}</div>
+            <StyledDogsTableCell key={index}>{item[field.id]}</StyledDogsTableCell>
           ))
         }
-      </div>
+      </StyledDogsTableRow>
     )
   }
 
   return (
-    <div className='dogs-table'>
-      <div className='dogs-table__row _head'>
+    <StyledDogsTable>
+      <StyledDogsTableRowHead>
         {
           columns.map((field, index) => (
-            <div className="dogs-table__cell" key={index}>{field.text}</div>
+            <StyledDogsTableCell key={index}>{field.text}</StyledDogsTableCell>
           ))
         }
-      </div>
+      </StyledDogsTableRowHead>
       
       {
         isLoading 
-          ? <div className='loading'>loading...</div>
+          ? <StyledDogsTableLoading>loading...</StyledDogsTableLoading>
           : dogsList.map(renderRow) // внутрь renderRow придут 3 аргумента из метода .map() - item, index, array
       }      
-    </div>
+    </StyledDogsTable>
   )
 };
 

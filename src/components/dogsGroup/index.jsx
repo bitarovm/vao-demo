@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DogsTable from '../dogsTable';
 
-import './styles.css';
+import {
+  StyledGroup,
+  StyledTitle,
+} from './styles.js';
 
 const DogsGroup = ({
   title,
@@ -11,8 +14,8 @@ const DogsGroup = ({
   columns,
   onItemClick,
 }) => (
-  <div className="group">
-    {title && <div className="title">{title}</div>}
+  <StyledGroup>
+    {title && <StyledTitle>{title}</StyledTitle>}
 
     <DogsTable
       dogsList={items}
@@ -20,7 +23,7 @@ const DogsGroup = ({
       columns={columns}
       onRowClick={onItemClick}
     />
-  </div>
+  </StyledGroup>
   );
 
 DogsGroup.propTypes = {

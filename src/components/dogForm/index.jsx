@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DogFormParam from '../dogFormParam';
 
-import './styles.css';
+import {
+  StyledDogForm,
+  StyledDogFormImage,
+  StyledDogFormData,
+  StyledDogFormButton,
+} from './styles.js';
 
 const DogForm = ({
   dogData,
@@ -27,10 +32,10 @@ const DogForm = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="dog-form">
-        <div className="dog-form__image"></div>
+      <StyledDogForm>
+        <StyledDogFormImage/>
         
-        <div className="dog-form__data">
+        <StyledDogFormData>
             {
               fields.map(({ id: fieldId, text: fieldLabel, type: fieldType }, index) => 
                 <DogFormParam
@@ -45,14 +50,14 @@ const DogForm = ({
                 />
               )
             }
-        </div>
-      </div>
+        </StyledDogFormData>
+      </StyledDogForm>
 
       {
         isEditing &&
           <>
-            <button className="dog-form__button" onClick={onCancelClick}>Отменить</button>
-            <button className="dog-form__button" type="submit">Сохранить</button>
+            <StyledDogFormButton onClick={onCancelClick}>Отменить</StyledDogFormButton>
+            <StyledDogFormButton type="submit">Сохранить</StyledDogFormButton>
           </>
       }
     </form>

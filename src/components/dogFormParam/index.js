@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import {
+  StyledParam,
+  StyledLabel,
+  StyledInput,
+  StyledTextarea,
+  StyledSelect,
+} from './styles.js';
 
 const Input = ({ name, value, onChange }) => (
-  <input
+  <StyledInput
     className='dog-form__field'
     type='text'
     name={name}
@@ -14,7 +20,7 @@ const Input = ({ name, value, onChange }) => (
 );
 
 const Textarea = ({ name, value, onChange }) => (
-  <textarea
+  <StyledTextarea
     className='dog-form__field'
     name={name}
     value={value}
@@ -23,7 +29,7 @@ const Textarea = ({ name, value, onChange }) => (
 );
 
 const Select = ({ name, value, options, onChange }) => (
-  <select
+  <StyledSelect
     className='dog-form__field'
     name={name}
     value={value}
@@ -34,7 +40,7 @@ const Select = ({ name, value, options, onChange }) => (
         <option key={index} value={option.value}>{option.label}</option>
       )
     }
-  </select>
+  </StyledSelect>
 );
 
 const DogFormParam = ({
@@ -70,14 +76,14 @@ const DogFormParam = ({
   );
 
   return(
-    <div className="dog-form__param">
-      <label className="dog-form__label">{label}</label>
+    <StyledParam>
+      <StyledLabel>{label}</StyledLabel>
       {
         isEditing
         ? renderFieldEditMode()
         : renderFieldViewMode()
       }
-    </div>
+    </StyledParam>
   );
 };
 
