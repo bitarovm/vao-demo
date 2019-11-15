@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,EACE,qBACF,CAMA,UAHE,WAQF,CALA,KAEE,QAAS,CACT,SAAU,CACV,eACF,CAEA,MACE,eACF","file":"main.7c6e02cf.chunk.css","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\nhtml {\n  height: 100%;\n}\n\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #fff;\n}\n\n#root {\n  min-height: 100%;\n}"]}

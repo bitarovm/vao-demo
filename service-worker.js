@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/vao-demo/precache-manifest.5cf812f81c40ff8a9d2462032094fb7e.js"
+  "/vao-demo/precache-manifest.d9b69970e3e558852f9490f657f9f47a.js"
 );
 
 self.addEventListener('message', (event) => {
